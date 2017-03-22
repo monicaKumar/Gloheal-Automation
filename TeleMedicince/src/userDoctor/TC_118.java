@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class TC_118 {
 	public static void main(String[] args) throws InterruptedException {
@@ -57,7 +58,14 @@ public class TC_118 {
 			System.out.println("Failed");
 		}
 		
+		Thread.sleep(10000);
 		
+		Actions actions = new Actions(driver);
+		WebElement logout = driver.findElement(By.linkText("Logout"));
+		actions.moveToElement(logout);
+		actions.click().build().perform();
+		
+		Thread.sleep(10000);
 		
 	}
 
